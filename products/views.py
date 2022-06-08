@@ -8,9 +8,13 @@ def index(request):
     """
 
     products = Product.objects.all()
+    locations = Location.objects.all()
+    inventory = Inventory.objects.all()
 
     context = {
-        'products':products,
+        'products': products,
+        'locations': locations,
+        'inventory': inventory,
     }
 
     return render(request, 'products/index.html', context)

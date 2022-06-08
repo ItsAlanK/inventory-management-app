@@ -6,7 +6,7 @@
 <hr>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-12 col-lg-10">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -15,18 +15,36 @@
                     <th scope="col">SKU</th>
                     <th scope="col">Weight (kg)</th>
                     <th scope="col">Value (€)</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Notes</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {% for product in products %}
+                    {% for p in products %}
                     <tr>
-                        <th scope="row">{{ product.id }}</th>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.SKU }}</td>
-                        <td>{{ product.weight }} kg</td>
-                        <td>€ {{ product.value }}</td>
-                        <td>{{ product.notes }}</td>
+                        <th scope="row">{{ p.id }}</th>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.SKU }}</td>
+                        <td>{{ p.weight }} kg</td>
+                        <td>€ {{ p.value }}</td>
+                        <td>
+                        {% for i in inventory %}
+                            {% if i.product.id is p.id %}
+                                {{ i.quantity }}
+                            {% endif %}
+                            <br>
+                        {% endfor %}
+                        </td>
+                        <td>
+                            {% for i in inventory %}
+                                {% if i.product.id is p.id %}
+                                    {{ i.location }}
+                                {% endif %}
+                                <br>
+                            {% endfor %}
+                            </td>
+                        <td>{{ p.notes }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
