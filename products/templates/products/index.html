@@ -32,16 +32,16 @@
                         {% for i in inventory %}
                             {% if i.product.id is p.id %}
                                 {{ i.quantity }}
+                                <br>
                             {% endif %}
-                            <br>
                         {% endfor %}
                         </td>
                         <td>
                             {% for i in inventory %}
                                 {% if i.product.id is p.id %}
                                     {{ i.location }}
+                                    <br>
                                 {% endif %}
-                                <br>
                             {% endfor %}
                             </td>
                         <td>{{ p.notes }}</td>
