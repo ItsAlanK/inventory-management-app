@@ -14,11 +14,39 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/50309a1295.js" crossorigin="anonymous"></script>
 
     <title>Inventory Management App {% block subtitle %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top"></header>
+        <header class="container-fluid fixed-top bg-white">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Inventory Management System</a>
+                  <button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Add Product</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Manage/Delete Product</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Add Location</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Manage/Delete Location</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </header>
+
+        <div class="mt-5"></div>
 
         {% block content %}
         {% endblock %}
