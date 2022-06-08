@@ -33,6 +33,8 @@ Database Diagrams
 
 ![Diagram showing database structure](docs/db-diagrams.png)
 
+****
+
 |   | Product Model  |   |
 |---|---|---|
 | id  | IntegerField  | OnetoMany(Inventory) |
@@ -44,6 +46,8 @@ Database Diagrams
 
 **Product Model:** Stores info on each product type
 
+****
+
 |   | Inventory Model  |   |
 |---|---|---|
 | id  | IntegerField  |  |
@@ -52,6 +56,8 @@ Database Diagrams
 | location  | ForeignKey  | ManytoOne(Locations)  |
 
 **Inventory Model:** Links Products to locations, stores amount of each product at a given location allowing for each product stock to be split between locations
+
+****
 
 |   | Location Model  |   |
 |---|---|---|
