@@ -29,6 +29,38 @@ Fall 2022 - Shopify Developer Intern Challenge Submission. An inventory tracking
 <a name="structure"></a>
 ## Structure ##
 
+Database Diagrams
+
+![Diagram showing database structure](docs/db-diagrams.png)
+
+|   | Product Model  |   |
+|---|---|---|
+| id  | IntegerField  | OnetoMany(Inventory) |
+| SKU  | IntegerField  |   |
+| name | CharField  |  |
+| weight  | DecimalField  |   |
+| value  | DecimalField  |   |
+| notes  | textField  |   |
+
+**Product Model:** Stores info on each product type
+
+|   | Inventory Model  |   |
+|---|---|---|
+| id  | IntegerField  |  |
+| product  | ForeignKey  | ManytoOne(Products) |
+| quantity | IntegerField  |  |
+| location  | ForeignKey  | ManytoOne(Locations)  |
+
+**Inventory Model:** Links Products to locations, stores amount of each product at a given location allowing for each product stock to be split between locations
+
+|   | Location Model  |   |
+|---|---|---|
+| id  | IntegerField  | OnetoMany(Inventory) |
+| name  | CharField  |  |
+| address | CharField  |  |
+
+**Location Model:** Stores name and address of each location.
+
 <a name="features"></a>
 ## Features ##
 
