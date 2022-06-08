@@ -17,3 +17,10 @@ class InventoryForm(forms.ModelForm):
         model = Inventory
         fields = ('quantity', 'location',)
 
+class LocationForm(forms.ModelForm):
+    """ Form for managing locations from front end. """
+
+    class Meta:
+        model = Location
+        fields = '__all__'
+

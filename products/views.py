@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Product, Location, Inventory
-from .forms import ProductForm, InventoryForm
+from .forms import ProductForm, InventoryForm, LocationForm
 
 
 def index(request):
@@ -47,3 +47,26 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def add_location(request):
+    """ Add a location """
+
+    if request.method == 'POST':
+        locationform = LocationForm(request.POST)
+        if locationform.is_valid():
+            location = locationform.save()
+            return redirect(
+                reverse('home'))
+        else:
+            print('Error saving location')
+    else:
+        locationform = LocationForm()
+
+    template = 'products/add-location.html'
+    context = {
+        'locationform': locationform,
+    }
+
+    return render(request, template, context)
+
