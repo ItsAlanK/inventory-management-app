@@ -7,7 +7,7 @@ class Product(models.Model):
     """
     SKU = models.IntegerField(default=0)
     name = models.CharField(max_length=254)
-    weight = models.IntegerField(default=0)
+    weight = models.DecimalField(max_digits=8, decimal_places=2)
     value = models.DecimalField(max_digits=8, decimal_places=2)
     notes = models.TextField(null=True, blank=True)
 

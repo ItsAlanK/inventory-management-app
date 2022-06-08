@@ -2,5 +2,36 @@
 {% load static %}
 
 {% block content %}
-<h1 class="text-center mt-1 display-1">Inventory Management System</h1>
+<h3 class="text-center mt-1 display-3">Inventory Management System Contents</h3>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Weight (kg)</th>
+                    <th scope="col">Value (€)</th>
+                    <th scope="col">Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.SKU }}</td>
+                        <td>{{ product.weight }} kg</td>
+                        <td>€ {{ product.value }}</td>
+                        <td>{{ product.notes }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
