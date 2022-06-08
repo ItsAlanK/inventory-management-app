@@ -25,7 +25,7 @@ Fall 2022 - Shopify Developer Intern Challenge Submission. An inventory tracking
 - Authentication and CSS/Design are not required and will not be considered during evaluation.
 
 <a name="structure"></a>
-## Requirements ##
+## Structure ##
 
 <a name="features"></a>
 ## Features ##
