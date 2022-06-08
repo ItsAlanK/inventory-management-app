@@ -22,14 +22,14 @@
         <header class="container-fluid fixed-top bg-white">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Inventory Management System</a>
+                  <a class="navbar-brand" href="{% url 'home' %}">Inventory Management System</a>
                   <button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Add Product</a>
+                        <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Add Location</a>
