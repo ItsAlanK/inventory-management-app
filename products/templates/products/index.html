@@ -45,7 +45,7 @@
                             {% endfor %}
                             </td>
                         <td>{{ p.notes }}</td>
-                        <td><a class="text-primary"><small>Edit</small></a>/<a class="text-danger"><small>Delete</small></a></td>
+                        <td><a class="text-primary" href="{% url 'edit_product' p.id %}"><small>Manage</small></a>/<a class="text-danger"><small>Delete</small></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

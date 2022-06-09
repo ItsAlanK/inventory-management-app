@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h3 class="text-center mt-1 display-3">Locations</h3>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Postcode</th>
+                    <th scope="col">Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for l in locations %}
+                    <tr>
+                        <th scope="row">{{ l.id }}</th>
+                        <td>{{ l.name }}</td>
+                        <td>{{ l.address_line_1 }},
+                            {{ l.address_line_2 }},
+                            {{ l.address_line_3 }},
+                            {{ l.county }},
+                        </td>
+                        <td>{{ l.postcode }}</td>
+                        <td>{{ l.country }}</td>
+                        <td>
+                            <a class="text-primary"><small>Manage</small></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

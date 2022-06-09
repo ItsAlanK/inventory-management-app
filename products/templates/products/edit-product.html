@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4">Product Management</h2>
+                    <h5 class="text-muted">Edit Product: {{ product.name }}</h5>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-10">
+                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ product_form | crispy }}
+                    <div class="text-end">
+                        <a href="" class="btn btn-grey-outline rounded">Cancel</a>
+                        <input class="btn btn-grey rounded" type="submit" value="Edit Product Details"></input>
+                    </div>
+                </form>
+                <hr>
+                <h3>Product Inventory</h3>
+                {% for i in product_inventory %}
+                        <p>{{ i.quantity }} of {{ i }} at {{ i.location }}
+                            <a class="text-primary" href=""><small>Manage</small></a>/<a class="text-danger"><small>Delete</small></a>
+                        </p>
+                        
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
