@@ -22,6 +22,7 @@ def index(request):
     return render(request, 'products/index.html', context)
 
 
+# Product Management
 def add_product(request):
     """ Add a product to list """
 
@@ -83,7 +84,36 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+# Inventory Management
+def add_inventory(request, product_id):
+    """ Add a product inventory to location """
 
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        inventoryform = InventoryForm(request.POST)
+        if inventoryform.is_valid():
+            inventory = inventoryform.save(commit=False)
+            inventory.product = product
+            inventory.save()
+            return redirect(
+                reverse('home'))
+            print('Product Added location successfully')
+        else:
+            print('Error product not added')
+    else:
+        inventoryform = InventoryForm()
+
+    template = 'products/add-inventory.html'
+    context = {
+        'product': product,
+        'inventoryform': inventoryform,
+    }
+
+    return render(request, template, context)
+
+
+# Location Management
 def add_location(request):
     """ Add a location """
 

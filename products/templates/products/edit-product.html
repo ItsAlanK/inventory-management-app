@@ -24,6 +24,9 @@
                 </form>
                 <hr>
                 <h3>Product Inventory</h3>
+                <a href="{% url 'add_inventory' product.id %}">Add inventory to new location</a>
+                <br>
+                <br>
                 {% for i in product_inventory %}
                         <p>{{ i.quantity }} of {{ i }} at {{ i.location }}
                             <a class="text-primary" href=""><small>Manage</small></a>/<a class="text-danger"><small>Delete</small></a>
