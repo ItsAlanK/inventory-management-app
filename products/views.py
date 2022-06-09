@@ -89,16 +89,26 @@ def add_inventory(request, product_id):
     """ Add a product inventory to location """
 
     product = get_object_or_404(Product, pk=product_id)
-
+    inventory_list = Inventory.objects.all()
+ 
     if request.method == 'POST':
         inventoryform = InventoryForm(request.POST)
         if inventoryform.is_valid():
             inventory = inventoryform.save(commit=False)
-            inventory.product = product
-            inventory.save()
-            return redirect(
-                reverse('home'))
-            print('Product Added location successfully')
+            already_exists = False
+
+            for i in inventory_list:
+                if inventory.location == i.location and i.product == product:
+                    already_exists = True
+                    i.quantity += inventory.quantity
+                    i.save()
+                    return redirect(reverse('home'))
+            if not already_exists:
+                inventory.product = product
+                inventory.save()
+                return redirect(
+                    reverse('home'))
+                print('Product Added location successfully')
         else:
             print('Error product not added')
     else:
