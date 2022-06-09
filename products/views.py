@@ -35,8 +35,9 @@ def add_product(request):
             inventory.save()
             return redirect(
                 reverse('home'))
+            print('Product Added successfully')
         else:
-            print('Error')
+            print('Error product not added')
     else:
         productform = ProductForm()
         inventoryform = InventoryForm()
@@ -56,6 +57,14 @@ def edit_product(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     product_form = ProductForm(instance=product)
+
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        if product_form.is_valid():
+            product_form.save()
+            print('product updated successfully')
+            return redirect(reverse('home'))
+
 
     inventory = Inventory.objects.all()
     product_inventory = []
