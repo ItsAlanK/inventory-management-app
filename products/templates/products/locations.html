@@ -30,7 +30,7 @@
                         <td>{{ l.postcode }}</td>
                         <td>{{ l.country }}</td>
                         <td>
-                            <a class="text-primary"><small>Manage</small></a>
+                            <a class="text-primary" href="{% url 'edit_location' l.id %}"><small>Manage</small></a>
                         </td>
                     </tr>
                     {% endfor %}

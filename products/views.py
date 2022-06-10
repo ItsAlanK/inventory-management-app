@@ -171,3 +171,27 @@ def locations(request):
 
     return render(request, 'products/locations.html', context)
 
+
+def edit_location(request, location_id):
+    """
+    Edit location details
+    """
+    location = get_object_or_404(Location, pk=location_id)
+    location_form = LocationForm(instance=location)
+
+    if request.method == 'POST':
+        location_form = LocationForm(request.POST, request.FILES, instance=location)
+        if location_form.is_valid():
+            location_form.save()
+            print('location updated successfully')
+            return redirect(reverse('locations'))
+
+    template = 'products/edit-location.html'
+
+    context={
+            'location_form': location_form,
+            'location': location,
+            }
+
+    return render(request, template, context)
+

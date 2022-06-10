@@ -10,4 +10,5 @@ urlpatterns = [
     path('add-inventory/<int:product_id>/', views.add_inventory, name='add_inventory'),
     path('add-location', views.add_location, name='add_location'),
     path('locations', views.locations, name='locations'),
+    path('edit-location/<int:location_id>/', views.edit_location, name='edit_location'),
 ]
