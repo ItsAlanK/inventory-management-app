@@ -2,6 +2,7 @@
 Fall 2022 - Shopify Developer Intern Challenge Submission. An inventory tracking application for a logistics company. A web application that meets the requirements listed below, along with one additional feature, with the options also listed below.
 
 [Live project](https://inventory-management-app.alankinsella2.repl.co/)
+
 [Project hosted on Replit here](https://replit.com/@AlanKinsella2/Inventory-Management-App?v=1)
 
 ## Contents ##
