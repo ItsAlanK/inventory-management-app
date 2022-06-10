@@ -31,6 +31,10 @@
                         <td>{{ l.country }}</td>
                         <td>
                             <a class="text-primary" href="{% url 'edit_location' l.id %}"><small>Manage</small></a>
+                            /
+                            <a class="text-danger confirm-delete" href="{% url 'delete_location' l.id %}">
+                                <small>Delete</small>
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -39,4 +43,12 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+    <script>
+    $(document).on('click', '.confirm-delete', function(){
+        return confirm('Are you sure you want to delete this? All inventory saved at this location will be removed too. This is not reversable.');
+    })
+</script>
 {% endblock %}

@@ -43,7 +43,7 @@ class Inventory(models.Model):
 
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
-    location = models.ForeignKey('Location', on_delete=models.PROTECT)
+    location = models.ForeignKey('Location', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.product.name

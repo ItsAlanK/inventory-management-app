@@ -195,3 +195,12 @@ def edit_location(request, location_id):
 
     return render(request, template, context)
 
+
+def delete_location(request, location_id):
+    """ Delete a location """
+
+    location = get_object_or_404(Location, pk=location_id)
+    location.delete()
+    print(f"Product: {location} successfully deleted")
+    return redirect(reverse('home'))
+
