@@ -124,9 +124,17 @@ def add_inventory(request, product_id):
     else:
         inventoryform = InventoryForm()
 
+    inventory_count = Inventory.objects.all()
+    product_inventory = []
+
+    for i in inventory_count:
+        if i.product == product:
+            product_inventory.append(i)
+
     template = 'products/add-inventory.html'
     context = {
         'product': product,
+        'product_inventory': product_inventory,
         'inventoryform': inventoryform,
     }
 

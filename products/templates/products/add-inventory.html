@@ -13,6 +13,14 @@
             </div>
             <p>Enter positive number to add to current total at location or create inventory at new location</p>
             <p>Enter negative number to subtract from current total at location or create negative inventory at new location</p>
+            <p>
+                There is currently:
+                <br>
+                {% for i in product_inventory %}
+                {{ i.quantity }} of {{ i }} at {{ i.location }}
+                <br>
+                {% endfor %}
+            </p>
         </div>
         <div class="row">
             <div class="col-12 col-md-10">
@@ -20,7 +28,7 @@
                     {% csrf_token %}
                     {{ inventoryform | crispy }}
                     <div class="text-end">
-                        <a href="" class="btn btn-grey-outline rounded">Cancel</a>
+                        <a href="{% url 'home' %}" class="btn btn-grey-outline rounded">Cancel</a>
                         <input class="btn btn-grey rounded" type="submit" value="Add Inventory"></input>
                     </div>
                 </form>
