@@ -84,6 +84,16 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
+def delete_product(request, product_id):
+    """ Delete a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    print(f"Product: {product} successfully deleted")
+    return redirect(reverse('home'))
+
+
 # Inventory Management
 def add_inventory(request, product_id):
     """ Add a product inventory to location """
