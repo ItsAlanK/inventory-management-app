@@ -73,8 +73,31 @@ Database Diagrams
 <a name="current-features"></a>
 ### Current Features ###
 
+- List view of products - A table view of all products in system displaying their details as well as their inventory count at each location where there is inventory.
+- Add/Update Products - New products can be added and updated.
+- Add/Subtract inventory - Inventory amounts for each location can be increased and decreased.
+- Delete Products - Products can be deleted after confirming pop up. This also deletes inventory associated with the product.
+- Add locations - New locations can be added.
+- Edit locations - Location details can be edited.
+- Delete locations - Locations can be deleted which also removes inventory at that location but not products as they can be linked to multiple locations.
+
 <a name="potential-features"></a>
 ### Potential Future Features ###
 
+- Add inventory to multiple locations when adding new product.
+- Authentication with different user levels allowing different permissions - Some user levels can edit details and inventory but not delete/add products/locations. This allows basic staff to manage day to day while major changes have to be done by specific staff.
+- Quick remove single item from inventory for when a shipment is made
+
 <a name="technologies"></a>
 ## Technologies ##
+
+### Languages ###
+- Python
+- HTML
+- CSS
+
+### Frameworks/Libraries ###
+- Django
+- Bootstrap
+- JQuery
+- Crispy Forms
